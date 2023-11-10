@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Introduction to Xposed Modules-->
-    <string name="xposed_description">MIUI\'yi Yeniden Harika Hale Getirin!</string>
-    <!--HyperCeiler Settings/About Page-->
+    <string name="xposed_description">MIUI/HyperOS\'yi Yeniden Harika Hale Getirin!</string>
+    <!--Cemiler Settings/About Page-->
     <string name="language">İngilizce</string>
     <string name="translator">can1gulle</string>
     <string name="translator_url">https://github.com/can1gulle</string>
     <string name="settings">Ayarlar</string>
     <string name="about">Hakkında</string>
     <string name="about_use">Alıntı</string>
-    <string name="about_use_desc">HyperCeiler, destekleri için bu projelerin geliştiricilerine teşekkürler (belirli bir sıra olmadan) aşağıdaki açık kaynak projelerinin bir kısmını veya tamamını kullanır</string>
+    <string name="about_use_desc">Cemiler, destekleri için bu projelerin geliştiricilerine teşekkürler (belirli bir sıra olmadan) aşağıdaki açık kaynak projelerinin bir kısmını veya tamamını kullanır</string>
     <string name="about_contributer">Katkıda Bulunan</string>
-    <string name="about_contributer_desc">HyperCeiler\'in geliştirilmesindeki yardımları için aşağıdaki katkıda bulunanlara teşekkürler (belirli bir sıra olmadan)</string>
+    <string name="about_contributer_desc">Cemiler\'in geliştirilmesindeki yardımları için aşağıdaki katkıda bulunanlara teşekkürler (belirli bir sıra olmadan)</string>
     <string name="about_donation">Katkıda Bulunanlar</string>
     <string name="about_donation_desc">Buradan bağış yaparak bize destek olabilirsiniz</string>
     <string name="settings_data_title">Yedekle ve geri yükle.</string>
@@ -57,7 +57,7 @@
     <string name="about_tg_channel">Telegram kanalı.</string>
     <string name="about_github">Kaynak kod.</string>
     <string name="about_crwd">Crowdin.</string>
-    <string name="about_crwd_desc">HyperCeiler uygulamasını dilinize çevirmemize yardım edin.</string>
+    <string name="about_crwd_desc">Cemiler uygulamasını dilinize çevirmemize yardım edin.</string>
     <!--Pop-up window/miuix part-->
     <string name="soft_reboot">Hızlı yeniden başlat</string>
     <string name="tip">Tip</string>
