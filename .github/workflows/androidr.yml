@@ -69,7 +69,7 @@ jobs:
           path: ${{ env.APK_FILE_CANARY }}
 
       - name: Post to Android R/S Channel
-        if: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && github.ref_type != 'tag' && contains(github.event.head_commit.message, '[skip post]') == false && contains(github.event.head_commit.message, 's#') == false }}
+        if: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/Android_R' && github.ref_type != 'tag' && contains(github.event.head_commit.message, '[skip post]') == false && contains(github.event.head_commit.message, 's#') == false }}
         shell: bash
         env:
           CHANNEL_ID: ${{ secrets.CHANNEL_ID_TWO }}
