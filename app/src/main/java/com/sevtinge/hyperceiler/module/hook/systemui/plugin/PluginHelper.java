@@ -123,6 +123,8 @@ public class PluginHelper extends BaseHook {
 
     public void setClassLoader(ClassLoader classLoader) {
         // CCGrid.loadCCGrid(classLoader);
+        if (mPrefsMap.getBoolean("system_ui_control_center_hide_edit_botton"))
+            HideEditButton.initHideEditButton(classLoader);
         if (mPrefsMap.getBoolean("system_ui_plugin_enable_volume_blur"))
             EnableVolumeBlur.initEnableVolumeBlur(classLoader);
         if (mPrefsMap.getStringAsInt("system_ui_control_center_mi_smart_hub_entry", 0) != 0)
@@ -150,15 +152,18 @@ public class PluginHelper extends BaseHook {
         if (mPrefsMap.getBoolean("system_ui_control_center_qs_open_color") ||
                 mPrefsMap.getBoolean("system_ui_control_center_qs_big_open_color"))
             QSColor.pluginHook(classLoader);
-
         List<String> mCardStyleTiles = getTileList();
-        if (mPrefsMap.getBoolean("systemui_plugin_card_tiles_enabled") && !mCardStyleTiles.isEmpty()) {
+        if (mPrefsMap.getBoolean("systemui_plugin_card_tiles_enabled") && !mPrefsMap.getString("systemui_plugin_card_tiles", "").isEmpty()) {
             CustomCardTiles.initCustomCardTiles(classLoader, mCardStyleTiles);
         }
+        if (mPrefsMap.getStringAsInt("system_ui_control_center_hide_operator", 0) == 3)
+            ShowDeviceName.initShowDeviceName(classLoader);
+        if (mPrefsMap.getBoolean("system_ui_control_center_disable_device_managed"))
+            DisableDeviceManaged.initDisableDeviceManaged(classLoader);
     }
 
     private static List<String> getTileList() {
-        String cardTiles = mPrefsMap.getString("systemui_plugin_card_tiles", "");
-        return TextUtils.isEmpty(cardTiles) ? new ArrayList<>() : Arrays.asList(cardTiles.split("\\|"));
+        String cardTiles = mPrefsMap.getString("systemui_plugin_card_tiles", "").replace("List_", "");
+        return TextUtils.isEmpty(cardTiles.replace("List_", "")) ? new ArrayList<>() : Arrays.asList(cardTiles.split("\\|"));
     }
 }

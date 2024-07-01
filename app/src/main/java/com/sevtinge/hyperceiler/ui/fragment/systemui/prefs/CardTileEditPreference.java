@@ -1,3 +1,21 @@
+/*
+  * This file is part of HyperCeiler.
+
+  * HyperCeiler is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU Affero General Public License as
+  * published by the Free Software Foundation, either version 3 of the
+  * License.
+
+  * This program is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  * GNU Affero General Public License for more details.
+
+  * You should have received a copy of the GNU Affero General Public License
+  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+  * Copyright (C) 2023-2024 HyperCeiler Contributions
+*/
 package com.sevtinge.hyperceiler.ui.fragment.systemui.prefs;
 
 import android.content.Context;
@@ -99,7 +117,7 @@ public class CardTileEditPreference extends Preference {
     }
 
     private List<String> getTileList() {
-        String str = PrefsUtils.mSharedPreferences.getString("prefs_key_systemui_plugin_card_tiles", "");
+        String str = PrefsUtils.mSharedPreferences.getString("prefs_key_systemui_plugin_card_tiles", "").replace("List_", "");
         return TextUtils.isEmpty(str) ? new ArrayList<>() : Arrays.asList(str.split("\\|"));
     }
 
@@ -107,7 +125,7 @@ public class CardTileEditPreference extends Preference {
         String[] cardTileList = getContext().getResources().getStringArray(R.array.card_tile_list);
         mCardList = Arrays.asList(cardTileList);
         List<String> tiles = getTileList();
-        if (!tiles.isEmpty()) {
+        if (!PrefsUtils.mSharedPreferences.getString("prefs_key_systemui_plugin_card_tiles", "").isEmpty()) {
             mCardData.clear();
             mCardData.addAll(tiles);
         } else {
@@ -137,7 +155,7 @@ public class CardTileEditPreference extends Preference {
         for (String tile : mCardData) {
             builder.append(tile).append("|");
         }
-        String mCardStyleTiles = builder.toString();
+        String mCardStyleTiles = "List_" + builder;
         PrefsUtils.putString("prefs_key_systemui_plugin_card_tiles", mCardStyleTiles);
     }
 
